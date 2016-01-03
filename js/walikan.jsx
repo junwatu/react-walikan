@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import reverseWord from './util'
 
 var Walikan = React.createClass({
   getInitialState: function() {
@@ -7,13 +8,8 @@ var Walikan = React.createClass({
   },
   onInputChange: function(e) {
     let vag = e.target.value
-
     this.setState({ rvague: vag })
-
-    let gav = vag.split("").reverse().join("").split(" ").reverse().join(" ")
-    let gavl = gav.toLowerCase()
-    let gavlfu = gavl.charAt(0).toUpperCase() + gavl.slice(1)
-    this.setState({ vague: gavlfu})
+    this.setState({ vague: reverseWord(vag)})
   },
   render: function() {
      return (
