@@ -45,12 +45,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	var _es = __webpack_require__(1);
-
-	var _es2 = _interopRequireDefault(_es);
-
+	
+	var _walikan = __webpack_require__(1);
+	
+	var _walikan2 = _interopRequireDefault(_walikan);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = _walikan2.default;
 
 /***/ },
 /* 1 */
@@ -66,22 +68,28 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _util = __webpack_require__(160);
+	
+	var _util2 = _interopRequireDefault(_util);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var EsTeh = _react2.default.createClass({
-	  displayName: 'EsTeh',
+	var Walikan = _react2.default.createClass({
+	  displayName: 'Walikan',
 	
 	  getInitialState: function getInitialState() {
-	    return { vague: '' };
+	    return { vague: '', rvague: '' };
 	  },
 	  onInputChange: function onInputChange(e) {
-	    this.setState({ vague: e.target.value });
+	    var vag = e.target.value;
+	    this.setState({ rvague: vag });
+	    this.setState({ vague: (0, _util2.default)(vag) });
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement('input', { onChange: this.onInputChange, value: this.state.vague }),
+	      _react2.default.createElement('input', { onChange: this.onInputChange }),
 	      _react2.default.createElement(
 	        'div',
 	        null,
@@ -95,7 +103,7 @@
 	  }
 	});
 	
-	_reactDom2.default.render(_react2.default.createElement(EsTeh, null), document.getElementById('kontener'));
+	_reactDom2.default.render(_react2.default.createElement(Walikan, null), document.getElementById('kontener'));
 
 /***/ },
 /* 2 */
@@ -19685,6 +19693,21 @@
 	
 	module.exports = __webpack_require__(4);
 
+
+/***/ },
+/* 160 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function (string) {
+	  var dilema = string.split("").reverse().join("").split(" ").reverse().join(" ").toLowerCase();
+	  return dilema.charAt(0).toUpperCase() + dilema.slice(1);
+	};
 
 /***/ }
 /******/ ]);
